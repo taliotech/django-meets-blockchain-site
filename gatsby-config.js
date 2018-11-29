@@ -11,7 +11,7 @@ module.exports = {
     description:
       "Documentation for Django Meets Blockchain",
     version: '1.0',
-    siteUrl: 'TODO',
+    siteUrl: 'https://taliotech.github.io',
     keywords:
       'talio,blockchain,django',
     author: {
