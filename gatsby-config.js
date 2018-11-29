@@ -3,6 +3,7 @@
 require('dotenv').config();
 
 module.exports = {
+  pathPrefix: "/django-meets-blockchain-site",
   siteMetadata: {
     title: 'Django Meets Blockchain',
     sidebarTitle: 'Django Meets Blockchain',
@@ -11,7 +12,7 @@ module.exports = {
     description:
       "Documentation for Django Meets Blockchain",
     version: '1.0',
-    siteUrl: 'https://taliotech.github.io',
+    siteUrl: 'https://taliotech.github.io/django-meets-blockchain-site',
     keywords:
       'talio,blockchain,django',
     author: {
@@ -19,7 +20,7 @@ module.exports = {
       url: 'https://talio.ai',
       email: 'info@talio.io'
     },
-    pathPrefix: "/django-meets-blockchain-site",
+
     socials: [
       {
         name: 'Twitter',
