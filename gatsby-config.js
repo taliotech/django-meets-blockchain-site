@@ -19,6 +19,7 @@ module.exports = {
       url: 'https://talio.ai',
       email: 'info@talio.io'
     },
+    pathPrefix: "/django-meets-blockchain-site",
     socials: [
       {
         name: 'Twitter',
@@ -28,7 +29,7 @@ module.exports = {
       {
         name: 'GitHub',
         imgpath: 'icon-github.svg',
-        url: 'https://github.com/taliotech'
+        url: 'https://github.com/taliotech/'
       },
       {
         name: 'LinkedIn',
