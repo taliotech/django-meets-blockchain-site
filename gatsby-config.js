@@ -29,7 +29,7 @@ module.exports = {
       {
         name: 'GitHub',
         imgpath: 'icon-github.svg',
-        url: 'https://github.com/taliotech/'
+        url: 'https://github.com/taliotech/django-meets-blockchain-site'
       },
       {
         name: 'LinkedIn',
