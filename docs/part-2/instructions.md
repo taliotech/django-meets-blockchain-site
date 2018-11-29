@@ -28,7 +28,7 @@ Once you've created a project, the first thing you'll need to do is whitelist th
 
 Simply add the above to the project whitelist.
 
-![infura-io-screenshot](infura.png)
+![infura-io-screenshot](./infura.png)
 
 
 Next, create a new file to contain the logic for accessing the token: `django-meets-blockchain-api/core/columbustoken.py`
@@ -109,7 +109,7 @@ You'll need the JSON for contract's application binary interface (ABI), which is
 
 Open the above URL in a browser, scroll down to the **Contract ABI** section, then click **Export ABI** and choose **JSON Format**. Save the JSON to `django-meets-blockchain-api/core/ColumbusTokenAbi.json`.
 
-![etherscan-io-screenshot](etherscan.png)
+![etherscan-io-screenshot](./etherscan.png)
 
 After saving the JSON file, back in the code, load it from the filesystem:
 
