@@ -1,0 +1,48 @@
+[
+
+  {
+  "title": "Getting Started",
+  "items": [
+    {
+      "id": "introduction",
+      "slug": "/getting-started/introduction/",
+      "title": "Introduction"
+    },
+    {
+      "id": "prerequisites",
+      "slug": "/getting-started/prerequisites/",
+      "title": "Prerequisites"
+    }
+  ]
+},
+{
+  "title": "Part 1: Fundamentals",
+  "items": [
+    {
+      "id": "drf-overview",
+      "slug": "/part-1/overview/",
+      "title": "Overview"
+    },
+    {
+      "id": "drf-instructions",
+      "slug": "/part-1/instructions/",
+      "title": "Instructions"
+    }
+  ]
+},
+{
+  "title": "Part 2: Blockchain",
+  "items": [
+    {
+      "id": "blockchain-overview",
+      "slug": "/part-2/overview/",
+      "title": "Overview"
+    },
+    {
+      "id": "blockchain-instructions",
+      "slug": "/part-2/instructions/",
+      "title": "Instructions"
+    }
+  ]
+}
+]
