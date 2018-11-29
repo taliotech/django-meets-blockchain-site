@@ -1,0 +1,20 @@
+{
+  "main.css": "styles.css",
+  "main.js": "render-page.js",
+  "main.js.map": "render-page.js.map",
+  "static/LeagueMono-Bold.otf": "static/LeagueMono-Bold.ae4d0e17.otf",
+  "static/LeagueMono-ExtraBold.otf": "static/LeagueMono-ExtraBold.5e89b7bb.otf",
+  "static/LeagueMono-Light.otf": "static/LeagueMono-Light.66cd9192.otf",
+  "static/LeagueMono-Medium.otf": "static/LeagueMono-Medium.3185adea.otf",
+  "static/LeagueMono-Regular.otf": "static/LeagueMono-Regular.928d3375.otf",
+  "static/LeagueMono-SemiBold.otf": "static/LeagueMono-SemiBold.020ba475.otf",
+  "static/LeagueMono-Thin.otf": "static/LeagueMono-Thin.fb4358b6.otf",
+  "static/LeagueMono-UltraLight.otf": "static/LeagueMono-UltraLight.39446831.otf",
+  "static/MuseoSansRounded-100.otf": "static/MuseoSansRounded-100.d6a6981d.otf",
+  "static/MuseoSansRounded-1000.otf": "static/MuseoSansRounded-1000.76c9c92b.otf",
+  "static/MuseoSansRounded-300.otf": "static/MuseoSansRounded-300.a6e4413a.otf",
+  "static/MuseoSansRounded-500.otf": "static/MuseoSansRounded-500.229592f6.otf",
+  "static/MuseoSansRounded-700.otf": "static/MuseoSansRounded-700.cdf94ace.otf",
+  "static/MuseoSansRounded-900.otf": "static/MuseoSansRounded-900.7002ff77.otf",
+  "static/logo-talio.png": "static/logo-talio.ba8d7524.png"
+}

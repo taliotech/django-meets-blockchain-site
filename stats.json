@@ -1,0 +1,70 @@
+{
+  "assetsByChunkName": {
+    "component---src-layouts-index-tsx": [
+      "component---src-layouts-index-tsx-4613c259ba3bbea0be51.js",
+      "component---src-layouts-index-tsx-4613c259ba3bbea0be51.js.map"
+    ],
+    "component---src-templates-home-tsx": [
+      "component---src-templates-home-tsx-c646cf9b3dd9aae5d94f.js",
+      "component---src-templates-home-tsx-c646cf9b3dd9aae5d94f.js.map"
+    ],
+    "path---part-2-overview": [
+      "path---part-2-overview-3ee86dd64b1bed901384.js",
+      "path---part-2-overview-3ee86dd64b1bed901384.js.map"
+    ],
+    "path---": [
+      "path----45de8f16f509f807c768.js",
+      "path----45de8f16f509f807c768.js.map"
+    ],
+    "path---getting-started-prerequisites": [
+      "path---getting-started-prerequisites-2223d5983ffb1c683034.js",
+      "path---getting-started-prerequisites-2223d5983ffb1c683034.js.map"
+    ],
+    "path---part-2-instructions": [
+      "path---part-2-instructions-ff6aebc7f76263c3327f.js",
+      "path---part-2-instructions-ff6aebc7f76263c3327f.js.map"
+    ],
+    "path---index": [
+      "path---index-b23f8c43c0f9f0873475.js",
+      "path---index-b23f8c43c0f9f0873475.js.map"
+    ],
+    "path---part-1-instructions": [
+      "path---part-1-instructions-183bf1af98bb4bed9f89.js",
+      "path---part-1-instructions-183bf1af98bb4bed9f89.js.map"
+    ],
+    "commons": [
+      "commons-9997e141788b304d7bf5.js",
+      "commons-9997e141788b304d7bf5.js.map"
+    ],
+    "path---getting-started-introduction": [
+      "path---getting-started-introduction-f28671fa4a7eaa479a2c.js",
+      "path---getting-started-introduction-f28671fa4a7eaa479a2c.js.map"
+    ],
+    "component---src-pages-404-tsx": [
+      "component---src-pages-404-tsx-27f6750cc6315315cd69.js",
+      "component---src-pages-404-tsx-27f6750cc6315315cd69.js.map"
+    ],
+    "path---404-html": [
+      "path---404-html-5c930a07d3faa8bfdc39.js",
+      "path---404-html-5c930a07d3faa8bfdc39.js.map"
+    ],
+    "app": [
+      "app-f79fe8e399585397222e.js",
+      "build-js-styles.css",
+      "app-f79fe8e399585397222e.js.map",
+      "build-js-styles.css.map"
+    ],
+    "component---src-templates-page-tsx": [
+      "component---src-templates-page-tsx-7e15d57a0e6aae9ea9c1.js",
+      "component---src-templates-page-tsx-7e15d57a0e6aae9ea9c1.js.map"
+    ],
+    "path---404": [
+      "path---404-5c930a07d3faa8bfdc39.js",
+      "path---404-5c930a07d3faa8bfdc39.js.map"
+    ],
+    "path---part-1-overview": [
+      "path---part-1-overview-1b074fb4f0e53494b58d.js",
+      "path---part-1-overview-1b074fb4f0e53494b58d.js.map"
+    ]
+  }
+}
