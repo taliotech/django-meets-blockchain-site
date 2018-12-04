@@ -5,13 +5,6 @@ prev: drf-overview
 
 ---
 
-### Objectives
-
-- Provision and setup a new project using Django Rest Framework (DRF)
-- Add a `/wallets` endpoint to support persisting wallet data by adding a DRF Model, Serializer, and ViewSet
-- Run and test endpoint
-
-
 ### Setup
 
 Begin by forking the following repository, which contains some assets to get you started:
@@ -32,7 +25,7 @@ Next, you'll need to launch the Vagrant virtual development environment:
 vagrant up
 ```
 
-This command will take several minutes to complete, as Vagrant will download the base image for the virtual machine (Ubuntu 18.04) and configure it for development by installing Node, Python, and Django. A Postgres database instance is also installed and configured to support the persistence layer. By developing within a VM, we can not only spin up a self-contained environment with all the required middleware, but we can also ensure more consistent, platform-agnostic results. Subsequent runs of `vagrant up` should complete much more quickly.
+This command will take several minutes to complete, as Vagrant will download the base image for the virtual machine (Ubuntu 18.04) and configure it for development by installing Node, Python, and Django. A Postgres database instance is also installed and configured to support the persistence layer. Subsequent runs of `vagrant up` should complete much more quickly.
 
 Vagrant facilitates development by sharing a local folder with the VM; this way you can edit source code on your host machine and execute it inside the guest VM. At this point, you should open the cloned repository folder `django-meets-blockchain` inside a text editor before proceeding.
 
