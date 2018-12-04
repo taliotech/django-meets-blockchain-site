@@ -32,7 +32,9 @@ Next, you'll need to launch the Vagrant virtual development environment:
 vagrant up
 ```
 
-This command will take several minutes to complete, as Vagrant will download the base image for the virtual machine (Ubuntu 16.04) and configure it for development by installing Node, Python, and Django. A Postres database instance is also installed and configured to support the persistence layer. By developing within a VM, we can not only spin up a self-contained environment with all the required middleware, but we can also ensure more consistent, platform-agnostic results. Subsequent runs of `vagrant up` will complete much faster.
+This command will take several minutes to complete, as Vagrant will download the base image for the virtual machine (Ubuntu 18.04) and configure it for development by installing Node, Python, and Django. A Postgres database instance is also installed and configured to support the persistence layer. By developing within a VM, we can not only spin up a self-contained environment with all the required middleware, but we can also ensure more consistent, platform-agnostic results. Subsequent runs of `vagrant up` should complete much more quickly.
+
+Vagrant facilitates development by sharing a local folder with the VM; this way you can edit source code on your host machine and execute it inside the guest VM. At this point, you should open the cloned repository folder `django-meets-blockchain` inside a text editor before proceeding.
 
 Once the VM is up and running, SSH into the VM:
 
@@ -44,9 +46,11 @@ The command prompt should change, indicating you're interacting with the CLI of 
 
 ### Scaffolding
 
+
+
 ```shell
 # Set up a new project with a single application
-django-admin startproject dmbapi .  # Note the trailing '.' character
+django-admin startproject api
 django-admin startapp core
 cd ..
 ```
@@ -54,30 +58,20 @@ cd ..
 The project layout should look like:
 
 ```shell
-$ pwd
-<some path>/django-meets-blockchain
-$ find .
-.
-./manage.py
-./django-meets-blockchain
-./django-meets-blockchain/core
-./django-meets-blockchain/core/__init__.py
-./django-meets-blockchain/core/admin.py
-./django-meets-blockchain/core/apps.py
-./django-meets-blockchain/core/migrations
-./django-meets-blockchain/core/migrations/__init__.py
-./django-meets-blockchain/core/models.py
-./django-meets-blockchain/core/tests.py
-./django-meets-blockchain/core/views.py
-./django-meets-blockchain/dmbapi/__init__.py
-./django-meets-blockchain/dmbapi/settings.py
-./django-meets-blockchain/dmbapi/urls.py
-./django-meets-blockchain/dmbapi/wsgi.py
+ls -l
+drwxr-xr-x 1 vagrant vagrant   224 Dec 13 20:29 api
+drwxr-xr-x 1 vagrant vagrant   352 Dec 13 20:36 core
+-rw-r--r-- 1 vagrant vagrant 40960 Dec 13 20:38 db.sqlite3
+drwxr-xr-x 1 vagrant vagrant    96 Dec 13 20:05 etc
+-rwxrwxr-x 1 vagrant vagrant   535 Dec 13 20:28 manage.py
+-rw-r--r-- 1 vagrant vagrant    73 Dec 13 20:01 README.md
+-rw-r--r-- 1 vagrant vagrant   148 Dec 13 20:11 requirements.txt
+-rw-r--r-- 1 vagrant vagrant   790 Dec 13 20:19 Vagrantfile
 ```
 
-It may look unusual that the application `core` has been created as a subfolder within the project directory. Using the project's namespace avoids name clashes with external modules.
+> In the instructions that follow, file paths will be given relative to this folder, which should map to the repository root directory on the host machine
 
-Now sync your database for the first time:
+Now, sync your database for the first time:
 
 ```shell
 python manage.py migrate
@@ -101,9 +95,11 @@ To create the `/wallets` endpoint, you'll need to code three main elements:
 
 #### Model
 
-First, declare the model for `Wallet`. Nominally, you'll want to store two basic fields: the `address` and a descriptive `label`.  In `django-meets-blockchain/core/models.py`, do this by adding the following code:
+First, declare the model for `Wallet`. Nominally, you'll want to store two basic fields: the `address` and a descriptive `label`.  In `core/models.py`, do this by adding the following code:
 
 ```python
+# Create your models here.
+
 class Wallet(models.Model):
     label = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
@@ -117,7 +113,7 @@ class Wallet(models.Model):
 
 #### Serializer
 
-Next, add the serializer for `Wallet`. Create a new file called `django-meets-blockchain/core/serializers.py` and add the following code:
+Next, add the serializer for `Wallet`. Create a new file called `core/serializers.py` and add the following code:
 
 ```python
 from .models import Wallet
@@ -133,7 +129,7 @@ Notice the field list includes the implicit `id` in addition to the two declared
 
 #### ViewSet
 
-Next, add the viewset declaration in `django-meets-blockchain/core/views.py`
+Next, add the viewset declaration in `core/views.py` (leave the existing `import` statement and add the following code):
 
 ```python
 from .models import Wallet
@@ -142,7 +138,8 @@ from rest_framework import viewsets
 
 class WalletViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows wallets to be viewed or edited.
+    This viewset automatically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
     """
     queryset = Wallet.objects.all().order_by('id')
     serializer_class = WalletSerializer
@@ -154,7 +151,7 @@ Note this is a very simple query that returns all `Wallet` records, ordered by `
 
 Finally, you'll need to configure the URL for the new endpoint and add the app into the project's settings.
 
-In `django-meets-blockchain/dmbapi/urls.py`, replace the code with the following:
+In `api/urls.py`, _replace_ the existing code with the following:
 
 ```python
 from django.conf.urls import url, include
@@ -172,7 +169,7 @@ urlpatterns = [
 ]
 ```
 
-In `django-meets-blockchain/dmbapi/settings.py`, add entries for `rest_framework` and `core` to `INSTALLED_APPS`:
+In `api/settings.py`, add entries for `rest_framework` and `core` to `INSTALLED_APPS`:
 
 ```json
 INSTALLED_APPS = [
@@ -187,9 +184,16 @@ INSTALLED_APPS = [
 ]
 ```
 
-#### Run the Server
+#### Add Migrations and Run the Server
 
-Test the app now by running the server (note this command should be executed _inside_ the VM):
+Since you've added a new model, you need to create and run new migrations to update the database. Run the following two commands:
+
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
+Finally, start the server (note this command should be executed _inside_ the VM) so you can test the app:
 
 ```
 python manage.py runserver 0.0.0.0:8000

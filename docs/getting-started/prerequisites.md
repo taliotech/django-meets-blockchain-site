@@ -12,5 +12,6 @@ You'll need to have several items ready to go before proceeding with this lab; t
     - Be sure to download and install both the platform package _and_ the Oracle VM VirtualBox Extension Pack (you don't need to install the SDK)
 2. [Download and install **Vagrant**](https://www.vagrantup.com/downloads.html)
     - Be sure you can run Vagrant from the command line (try `vagrant -v` to test)
+    - To save time, you can pre-download the Vagrant box used for this lab by running `vagrant box add bento/ubuntu-18.04`
     - Windows users, you may need to run commands from a terminal created with Administrator privileges
 3. [Signup for an account with **Infura**](https://infura.io) if you don't already have one
