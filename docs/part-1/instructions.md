@@ -43,7 +43,7 @@ The command prompt should change, indicating you're interacting with the CLI of 
 
 ```shell
 # Set up a new project with a single application
-django-admin startproject api
+django-admin startproject api . # note the . at the end
 django-admin startapp core
 cd ..
 ```

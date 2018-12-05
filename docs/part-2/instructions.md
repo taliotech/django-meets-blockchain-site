@@ -56,7 +56,7 @@ class ColumbusTokenService(object):
     @staticmethod
     def check_balance(address):
         # Get account balance in Wei
-        wei_balance = web3.eth.getBalance(ACCOUNT.address)
+        wei_balance = web3.eth.getBalance(address)
 
         # Convert the account balance from WEI to ETH
         eth_balance = web3.fromWei(wei_balance, "ether")
@@ -175,7 +175,7 @@ You can also use the contract to check the token balance on the input account by
 
 ```python
       # Check the CBUS token balance of the account
-      token_balance = columbusTokenContract.functions.balanceOf(ACCOUNT.address).call()
+      token_balance = columbusTokenContract.functions.balanceOf(address).call()
       print(f"My CBUS balance: {token_balance}")
 ```
 
@@ -261,14 +261,14 @@ On your **host** machine, open a new terminal window and navigate to the folder 
 
 Create a new file in the root repository folder called `client.py`. You can do this in your text editor or via the terminal. It will appear alongside some of the other Django files like `manage.py` but we'll execute it separate from the DRF server. In the real world, this script would be executed on a different machine, but, again, we're just using the same environment for convenience.
 
-The `client.py` script will also use Web3, so it starts in the same way, with the similar imports and the infura.io endpoint declaration:
+The `client.py` script will also use Web3, so it starts in the same way, with the similar imports and the infura.io endpoint declaration (note you'll need to replace `<INFURA_PROJECT_ID>` with your project ID as before):
 
 ```python
 import json
 from web3 import Web3
 import urllib3 # used for interacting with the DRF API
 
-# Endpoint URL from
+# Endpoint URL from infura.io
 PROVIDER_ENDPOINT = "https://mainnet.infura.io/v3/<INFURA_PROJECT_ID>"
 
 # Instantiate the Web3 class using the custom endpoint
@@ -330,4 +330,4 @@ transaction_hash = web3.eth.sendRawTransaction(signed_transaction.rawTransaction
 print(f"Transaction Hash: {transaction_hash}\n")
 ```
 
-At this point, running the script again using `python client.py` will execute the transaction add capture the token to the wallet. Keep in mind you can only do this once -- subsequent runs will fail as the ColumbusToken can only be captured once per wallet!
+At this point, running the script again using `python client.py` will execute the transaction and capture the token to the wallet. Keep in mind you can only do this once -- subsequent runs will fail as the ColumbusToken can only be captured once per wallet!
