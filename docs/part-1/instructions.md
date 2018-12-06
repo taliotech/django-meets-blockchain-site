@@ -37,15 +37,20 @@ vagrant ssh
 
 The command prompt should change, indicating you're interacting with the CLI of the VM and not your host machine.
 
+The Vagrant VM sets up a functioning Python 3.6 virtual environment, but before beginning, you'll need to install some specific modules: `django`, `djangorestframework`, and `web3`. Use the Python package installer, `pip3`, to do this:
+
+```shell
+pip3 install django djangorestframework web3
+```
+
 ### Scaffolding
 
-
+Django and DRF provide good tools for building out a new project from scratch. So, from the initial directory (which should map to the repository clone's root directory), execute the following commands:
 
 ```shell
 # Set up a new project with a single application
 django-admin startproject api . # note the . at the end
 django-admin startapp core
-cd ..
 ```
 
 The project layout should look like:
@@ -195,3 +200,143 @@ python manage.py runserver 0.0.0.0:8000
 Now you should be able to access the new endpoint at [http://localhost:8000/wallets/](http://localhost:8000/wallets/)
 
 Try adding a new wallet using the form, then reload the endpoint to make sure it was added. You can verify the data is correct by looking at the JSON output as well: [http://localhost:8000/wallets/?format=json](http://localhost:8000/wallets/?format=json)
+
+#### Add Validation
+
+Our `Wallet` model is pretty basic at this point, so let's add some validation logic to make it a bit more robust. Django supports both [default and custom validators](https://www.django-rest-framework.org/api-guide/validators/), so we'll add one of each.
+
+Nominally, since each wallet address is unique, you'll want to avoid creating multiple records for the same wallet address, so the first validator should check that there isn't already a record using the same address. This can be handled cleanly via Django's `UniqueValidator`, which can be declared inline in the model's field declaration.
+
+In `core/models.py`, modify the `address` field declaration to include the `unique=True` directive. Additionally, you can change the length of the field to 42, which is the length of a valid blockchain address. The new declaration should look like this:
+
+```python
+address = models.CharField(max_length=42, unique=True)
+```
+
+Test this by trying to add a second record using the same address; you should get an error messages.
+
+Additionally, it'd be good to make sure that the value for `Wallet.address` is actually a valid Ethereum wallet address. To do this, you'll need to add a custom validator to the serializer in `core/serializers.py`.
+
+Web3 provides [a handy method](https://web3py.readthedocs.io/en/stable/overview.html?#addresses) for performing this validation, so first, add the `import` directive for Web3 to the top of the file:
+
+```python
+from web3 import Web3
+```
+
+Then, in the class body, add the validation function. Django automatically recognizes functions that follow the naming convention `validate_FIELDNAME` so the function should be named `validate_address`. Call `Web3.isAddress` and raise a `ValidationError` if the check fails; otherwise, return the value:
+
+```python
+  def validate_address(self, value):
+      """
+      Check that the wallet address is valid
+      """
+      if not Web3.isAddress(value):
+          raise serializers.ValidationError("Value must be a valid wallet address")
+      return value
+```
+
+Now, test this by trying to add a wallet with a random value for address to make sure the validation fails.
+
+### Hello, Blockchain!
+
+Now that we've got a Wallet, let's add some actual blockchain logic as a new endpoint within `/wallets`. We'll start simply by adding an endpoint that checks the wallet's balance, which, being a publicly available information, can be done using only the wallet's address.
+
+Before you begin, though, you'll need to access your [infura.io](https://infura.io) account -- or sign up for one if you didn't already.
+
+In Infura, create a new project. Any name for the project will work; in the example screenshot below, we used `COLUMBUSTOKEN`.
+
+Once you've created a project, the first thing you'll need to do is whitelist the address of the smart contract. The address to use is:
+
+> `0x07c344edD719A356775E1FBd852c63Dc46167B76`
+
+Simply add the above to the project whitelist.
+
+![infura-io-screenshot](./infura.png)
+
+Next, create a new file to contain the blockchain logic in the API called `core/services.py`.
+
+At the top of the file, you'll need a few `import` statements:
+
+```python
+import json
+import os
+from web3 import Web3
+```
+
+Web3.py is the library you'll be using on both the server and client side to access the API.
+
+Next, you'll need to grab the endpoint URL from your infura.io project page. The URL will have the following form:
+
+> `https://mainnet.infura.io/v3/<INFURA_PROJECT_ID>`
+
+`<INFURA_PROJECT_ID>` will be specific to your account, so copy the URL from the infura.io project page and declare it as a field in the code, then use that field to instantiate the Web3 class:
+
+```python
+# Endpoint URL from
+PROVIDER_ENDPOINT = "https://mainnet.infura.io/v3/<INFURA_PROJECT_ID>"
+
+# Instantiate the Web3 class using the custom endpoint
+web3 = Web3(Web3.HTTPProvider(PROVIDER_ENDPOINT))
+```
+
+First, in order to verify configuration and connectivity via Web3, let's add some simple logic to return a wallet's balance and expose that as a new endpoint in our API. Continuing in `core/services.py`, declare a new class, `ColumbusTokenService`, to wrap the blockchain service logic and add a static method called `check_balance` that accepts a wallet address as input and returns its balance in ETH as output:
+
+
+```python
+class ColumbusTokenService(object):
+
+    # returns the balance of the wallet in ETH
+    @staticmethod
+    def check_balance(address):
+        # Get account balance in Wei
+        wei_balance = web3.eth.getBalance(address)
+
+        # Convert the account balance from WEI to ETH
+        eth_balance = web3.fromWei(wei_balance, "ether")
+        print(f"ETH balance: {eth_balance}")
+
+        # return the balance
+        return eth_balance
+```
+
+Ethereum measures **ETH** in **WEI**, which is the smallest unit that it's divisible by. Therefore, 1 ETH is equal to 1,000,000,000,000,000,000 WEI. Similarly, when working with the ColumbusToken, you'll find that it's also divisible by 18 places. Web3 provides a helper for converting Wei to a balance denominated in Ether.
+
+> [Read more about Ether denominations](http://ethdocs.org/en/latest/ether.html#denominations)
+
+
+Next, add a new endpoint to the `WalletViewSet` to expose this logic via the API. In `core/views.py`, start by adding four `import` statements at the top of the file:
+
+```python
+from rest_framework import renderers
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from .services import ColumbusTokenService
+```
+
+Then, add a new function `def` to the end of the `WalletViewSet` class. The entire class is reproduced below for context; you need to add the block starting with `@action`
+
+```python
+class WalletViewSet(viewsets.ModelViewSet):
+    """
+    This viewset automatically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
+    """
+    queryset = Wallet.objects.all().order_by('id')
+    serializer_class = WalletSerializer
+
+    @action(detail=True, renderer_classes=[renderers.JSONRenderer])
+    def check_balance(self, request, *args, **kwargs):
+        wallet = self.get_object()
+        balance_eth = ColumbusTokenService.check_balance(wallet.address)
+        return Response(balance_eth)
+```
+
+You should already have an entry for your wallet added to the DB from Part 1; if not, go to http://localhost:8000/wallets/ and use the form to add your wallet with its actual address.
+
+Once you have the record, use its numeric ID (_not_ its address) to build a URL that calls the `check_balance` endpoint. For instance, if the ID assigned to your wallet is `1`, you'd use the following URL:
+
+> http://localhost:8000/wallets/1/check_balance
+
+You should see a small amount returned. The wallet you were provided only has a fractional amount of ETH; that's ok, as the ColumbusToken only requires a nominal amount.
+
+Congratulations, you've got blockchain connectivity! In Part 2, we'll dive in to working with the blockchain in a more sophisticated way.
