@@ -275,11 +275,11 @@ PROVIDER_ENDPOINT = "https://mainnet.infura.io/v3/<INFURA_PROJECT_ID>"
 web3 = Web3(Web3.HTTPProvider(PROVIDER_ENDPOINT))
 ```
 
-Next, you'll need to add your private key as a variable. Note [there are many better ways to work with a local private key](https://web3py.readthedocs.io/en/stable/web3.eth.account.html); declaring it as a field in your code is probably the _worst_ way, but this is a demo script and a demo wallet.
+Next, you'll need to add your private key as a variable; replace `<YOUR_PRIVATE_KEY>` in the snippet below with the value. Note [there are many better ways to work with a local private key](https://web3py.readthedocs.io/en/stable/web3.eth.account.html); declaring it as a field in your code is probably the _worst_ way, but this is a demo script and a demo wallet. 
 
 ```python
 # NOT a good practice,
-PRIVATE_KEY = "9bb913343e50eb6b52c64b021baa0413d19963177714931088b1559272b371ff"
+PRIVATE_KEY = "<YOUR_PRIVATE_KEY>"
 ```
 
 First, initialize the account using the private key. The private key can also be used to derive the public address of the wallet.
