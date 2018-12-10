@@ -15,3 +15,4 @@ You'll need to have several items ready to go before proceeding with this lab; t
     - To save time, you can pre-download the Vagrant box used for this lab by running `vagrant box add bento/ubuntu-18.04`
     - Windows users, you may need to run commands from a terminal created with Administrator privileges
 3. [Signup for an account with **Infura**](https://infura.io) if you don't already have one
+4. [Download and install a **git** client](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for working with GitHub.
