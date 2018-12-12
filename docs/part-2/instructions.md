@@ -7,7 +7,7 @@ prev: blockchain-overview
 
 ### Checking the CBUS Token Balance
 
-Since we eventually want to capture the Columbus Token to the wallet, let's start by adding a new endpoint within `/wallets` that checks whether or not the wallet has the token already. Since the Columbus Token smart contract only allows one token per wallet, any given wallet's token balance will be either 0 or 1.
+Since we eventually want to capture the Columbus Token to the wallet, let's start by adding a new endpoint within `/wallets` that checks whether or not the wallet has the token already. While it is possible that a wallet could have more than one token, or even a fractional amount of tokens (by way of trading them with others), since the Columbus Token smart contract only allows a wallet to request a single token, the CBUS token balance will generally be either 0 or 1.
 
 This endpoint will essentially be a variation of the `check_balance` endpoint you made in Part 1; let's call this one `check_token_balance`.
 
