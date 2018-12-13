@@ -224,7 +224,7 @@ Web3 provides [a handy method](https://web3py.readthedocs.io/en/stable/overview.
 from web3 import Web3
 ```
 
-Then, in the class body, add the validation function. Django automatically recognizes functions that follow the naming convention `validate_FIELDNAME` so the function should be named `validate_address`. Call `Web3.isAddress` and raise a `ValidationError` if the check fails; otherwise, return the value:
+Then, in the `WalletSerializer` class body (following the `class Meta` block, but _not_ within it), add the validation function. Django automatically recognizes functions that follow the naming convention `validate_FIELDNAME` so the function should be named `validate_address`. Call `Web3.isAddress` and raise a `ValidationError` if the check fails; otherwise, return the value:
 
 ```python
   def validate_address(self, value):
