@@ -7,7 +7,7 @@ next: blockchain-instructions
 
 ### Objectives
 
-In **Part 1**, you created a simple DRF API with a single endpoint to persist wallet data. In **Part 2**, you'll extend the API to actually do some real work: capturing the Columbus token to a wallet. To do this, you'll need to implement the following steps:
+In **Part 1**, you created a simple DRF API with a single endpoint to persist wallet data and started to work with the blockchain. In **Part 2**, you'll extend the API to do some more complex work: capturing the Columbus token to a wallet. To do this, you'll need to implement the following steps:
 
 1. Connect to the Ethereum mainnet using Web3.py
 2. Access a pre-deployed smart contract
