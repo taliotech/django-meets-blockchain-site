@@ -354,3 +354,13 @@ Once you have the record, use its numeric ID (_not_ its address) to build a URL 
 You should see a small amount returned. The wallet you were provided only has a fractional amount of ETH; that's ok, as the ColumbusToken only requires a nominal amount.
 
 Congratulations, you've got blockchain connectivity! In Part 2, we'll dive in to working with the blockchain in a more sophisticated way.
+
+> Tip: Try searching for your wallet on [etherscan.io](https://etherscan.io/) to view more detailed information about it. This is a good way to cross-confirm the results for this lab
+
+## Stretch Goal
+
+Finish early? Try your hand at implementing an optional bonus goal:
+
+1. Add a new field to `Wallet` called `is_default` to flag whether or not a given wallet should be used as the default,
+2. Run the migration to update the DB, then mark one of the wallets as the default
+3. Add a new list route called `/wallets/default` that returns this default record  

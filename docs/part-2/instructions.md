@@ -266,3 +266,12 @@ print(f"Transaction Hash: {transaction_hash}\n")
 At this point, running the script again using `python client.py` will execute the transaction and capture the token to the wallet. Keep in mind you can only do this once -- subsequent runs will fail as the ColumbusToken can only be captured once per wallet!
 
 Did you capture the token? Use the `check_token_balance` endpoint to confirm your wallet now has a token balance of `1`. If it does, congratulations!
+
+> Remember to confirm your results by searching for your wallet on [etherscan.io](https://etherscan.io/)
+
+## Stretch Goal
+
+Here are some optional bonus goals:
+
+- Try re-running the transaction and confirm that it fails. Add error handling to the client script, then add validation logic to ensure the CBUS balance is `0` on the server side in `prepare_transaction`
+- Here's a secret: the smart contract's [logic for preventing more than one token](https://etherscan.io/address/0x07c344edd719a356775e1fbd852c63dc46167b76#code) isn't very robust. See if you can hack your way around it to get more than one token.
