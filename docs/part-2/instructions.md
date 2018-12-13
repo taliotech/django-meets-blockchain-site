@@ -128,7 +128,7 @@ A **nonce** value is required for each transaction. It prevents duplicate transa
 
 ```python
       # check the nonce value for the account
-      nonce = web3.eth.getTransactionCount(ACCOUNT.address)
+      nonce = web3.eth.getTransactionCount(address)
       print(f"nonce: {nonce}")
 ```
 
