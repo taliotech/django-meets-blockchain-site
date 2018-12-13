@@ -35,7 +35,13 @@ Once the VM is up and running, SSH into the VM:
 vagrant ssh
 ```
 
-The command prompt should change, indicating you're interacting with the CLI of the VM and not your host machine.
+The command prompt should change, indicating you're interacting with the CLI of the VM and not your host machine. You should see a prompt that looks like this:
+
+```shell
+(dmb-api) vagrant@vagrant:~/dmb-api$
+```
+
+That `/dmb-api` folder in the Vagrasnt VM maps to the repository clone folder on your local drive.
 
 The Vagrant VM sets up a functioning Python 3.6 virtual environment, but before beginning, you'll need to install some specific modules: `django`, `djangorestframework`, and `web3`. Use the Python package installer, `pip3`, to do this:
 
