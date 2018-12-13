@@ -48,8 +48,9 @@ pip3 install django djangorestframework web3
 Django and DRF provide good tools for building out a new project from scratch. So, from the initial directory (which should map to the repository clone's root directory), execute the following commands:
 
 ```shell
-# Set up a new project with a single application
-django-admin startproject api . # note the . at the end
+# Set up a new project with a single application; note the . at the end
+django-admin startproject api .
+# Set up a new module within the project
 django-admin startapp core
 ```
 
@@ -230,6 +231,9 @@ Then, in the class body, add the validation function. Django automatically recog
       """
       Check that the wallet address is valid
       """
+      # first, convert the address to a checksum address
+      value = Web3.toChecksumAddress(value)
+      # check the validity of the address
       if not Web3.isAddress(value):
           raise serializers.ValidationError("Value must be a valid wallet address")
       return value
