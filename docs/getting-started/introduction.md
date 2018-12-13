@@ -4,4 +4,4 @@ title: Introduction
 next: prerequisites
 ---
 
-> TODO
+## [Introductory Slide Deck](./DMB_Kickoff_Slides_r1.pdf)
