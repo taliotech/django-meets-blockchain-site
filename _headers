@@ -6,57 +6,57 @@
   X-Content-Type-Options: nosniff
 /static/*
   Cache-Control: max-age=31536000
-/django-meets-blockchain-site/part-1/overview/
-  Link: </django-meets-blockchain-site/commons-b0a1a6ee549488d5a16e.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/app-628c7ad42d94388fa5f2.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/path---part-1-overview-d7f97838eca157585d28.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/component---src-templates-page-tsx-c8931b709a2d81da1ab1.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-ec7f0375857201cc2e8c.js>; rel=preload; as=script
-/django-meets-blockchain-site/part-2/overview/
-  Link: </django-meets-blockchain-site/commons-b0a1a6ee549488d5a16e.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/app-628c7ad42d94388fa5f2.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/path---part-2-overview-4c4c4d7bfbf748c4266b.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/component---src-templates-page-tsx-c8931b709a2d81da1ab1.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-ec7f0375857201cc2e8c.js>; rel=preload; as=script
 /django-meets-blockchain-site/
   Link: </django-meets-blockchain-site/commons-b0a1a6ee549488d5a16e.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/app-628c7ad42d94388fa5f2.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/path---index-556cfe703ed1501ea04e.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/app-479d937b7e6c8cc11915.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/path---index-290b55c32ccafac2e0e1.js>; rel=preload; as=script
   Link: </django-meets-blockchain-site/component---src-templates-home-tsx-54ad9394e815ef6fc96b.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-ec7f0375857201cc2e8c.js>; rel=preload; as=script
-/django-meets-blockchain-site/part-2/instructions/
-  Link: </django-meets-blockchain-site/commons-b0a1a6ee549488d5a16e.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/app-628c7ad42d94388fa5f2.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/path---part-2-instructions-0e234be278d6117462c7.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/component---src-templates-page-tsx-c8931b709a2d81da1ab1.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-ec7f0375857201cc2e8c.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-181ba1a18fac99b8ba46.js>; rel=preload; as=script
 /django-meets-blockchain-site/getting-started/introduction/
   Link: </django-meets-blockchain-site/commons-b0a1a6ee549488d5a16e.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/app-628c7ad42d94388fa5f2.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/path---getting-started-introduction-e92be834eb659ec3b654.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/app-479d937b7e6c8cc11915.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/path---getting-started-introduction-0e9a22de45eacc752dbc.js>; rel=preload; as=script
   Link: </django-meets-blockchain-site/component---src-templates-page-tsx-c8931b709a2d81da1ab1.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-ec7f0375857201cc2e8c.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-181ba1a18fac99b8ba46.js>; rel=preload; as=script
 /django-meets-blockchain-site/getting-started/prerequisites/
   Link: </django-meets-blockchain-site/commons-b0a1a6ee549488d5a16e.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/app-628c7ad42d94388fa5f2.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/path---getting-started-prerequisites-4228a949bb5495eee0be.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/app-479d937b7e6c8cc11915.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/path---getting-started-prerequisites-5efcf39bbc53e81de162.js>; rel=preload; as=script
   Link: </django-meets-blockchain-site/component---src-templates-page-tsx-c8931b709a2d81da1ab1.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-ec7f0375857201cc2e8c.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-181ba1a18fac99b8ba46.js>; rel=preload; as=script
+/django-meets-blockchain-site/part-1/overview/
+  Link: </django-meets-blockchain-site/commons-b0a1a6ee549488d5a16e.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/app-479d937b7e6c8cc11915.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/path---part-1-overview-111636e1aa4736025f76.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/component---src-templates-page-tsx-c8931b709a2d81da1ab1.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-181ba1a18fac99b8ba46.js>; rel=preload; as=script
 /django-meets-blockchain-site/part-1/instructions/
   Link: </django-meets-blockchain-site/commons-b0a1a6ee549488d5a16e.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/app-628c7ad42d94388fa5f2.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/path---part-1-instructions-fb5a768e603300e6d6fe.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/app-479d937b7e6c8cc11915.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/path---part-1-instructions-d86ca059ac12f6abceea.js>; rel=preload; as=script
   Link: </django-meets-blockchain-site/component---src-templates-page-tsx-c8931b709a2d81da1ab1.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-ec7f0375857201cc2e8c.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-181ba1a18fac99b8ba46.js>; rel=preload; as=script
+/django-meets-blockchain-site/part-2/instructions/
+  Link: </django-meets-blockchain-site/commons-b0a1a6ee549488d5a16e.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/app-479d937b7e6c8cc11915.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/path---part-2-instructions-925b9ca5cec4c0a14370.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/component---src-templates-page-tsx-c8931b709a2d81da1ab1.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-181ba1a18fac99b8ba46.js>; rel=preload; as=script
+/django-meets-blockchain-site/part-2/overview/
+  Link: </django-meets-blockchain-site/commons-b0a1a6ee549488d5a16e.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/app-479d937b7e6c8cc11915.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/path---part-2-overview-0c6f498fdc4056e4732c.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/component---src-templates-page-tsx-c8931b709a2d81da1ab1.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-181ba1a18fac99b8ba46.js>; rel=preload; as=script
 /django-meets-blockchain-site/404/
   Link: </django-meets-blockchain-site/commons-b0a1a6ee549488d5a16e.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/app-628c7ad42d94388fa5f2.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/app-479d937b7e6c8cc11915.js>; rel=preload; as=script
   Link: </django-meets-blockchain-site/path---404-996910d49b22d52d8457.js>; rel=preload; as=script
   Link: </django-meets-blockchain-site/component---src-pages-404-tsx-f596f20c5679b33e0468.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-ec7f0375857201cc2e8c.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-181ba1a18fac99b8ba46.js>; rel=preload; as=script
 /django-meets-blockchain-site/404.html
   Link: </django-meets-blockchain-site/commons-b0a1a6ee549488d5a16e.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/app-628c7ad42d94388fa5f2.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/app-479d937b7e6c8cc11915.js>; rel=preload; as=script
   Link: </django-meets-blockchain-site/path---404-html-996910d49b22d52d8457.js>; rel=preload; as=script
   Link: </django-meets-blockchain-site/component---src-pages-404-tsx-f596f20c5679b33e0468.js>; rel=preload; as=script
-  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-ec7f0375857201cc2e8c.js>; rel=preload; as=script
+  Link: </django-meets-blockchain-site/component---src-layouts-index-tsx-181ba1a18fac99b8ba46.js>; rel=preload; as=script
