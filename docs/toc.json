@@ -3,11 +3,7 @@
   {
   "title": "Getting Started",
   "items": [
-    {
-      "id": "introduction",
-      "slug": "/getting-started/introduction/",
-      "title": "Introduction"
-    },
+
     {
       "id": "prerequisites",
       "slug": "/getting-started/prerequisites/",
