@@ -231,11 +231,15 @@ Then, in the class body, add the validation function. Django automatically recog
       """
       Check that the wallet address is valid
       """
-      # first, convert the address to a checksum address
-      value = Web3.toChecksumAddress(value)
+      error_message = "Value must be a valid wallet address"
+      try:
+        # first, convert the address to a checksum address
+        value = Web3.toChecksumAddress(value)
+      except:
+        raise serializers.ValidationError(error_message)
       # check the validity of the address
       if not Web3.isAddress(value):
-          raise serializers.ValidationError("Value must be a valid wallet address")
+        raise serializers.ValidationError(error_message)
       return value
 ```
 
